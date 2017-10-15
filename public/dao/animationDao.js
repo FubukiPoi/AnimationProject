@@ -87,11 +87,12 @@ module.exports = {
     },
     deleteAnimation: function(req, res, next) {
         var id = req.query.animation_id;
+        var status = req.query.status;
         dbUtils.dbConn(sql.deleteAnimation, id, function(err, rows) {
             if (err) {
                 console.log(err);
             }
-            res.redirect('/?status='+req.body.status);
+            res.redirect('/?status=1');
         });
     },
     createChart:function(req, res, next) {

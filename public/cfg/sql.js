@@ -10,6 +10,7 @@ module.exports = {
 	findOneAnimation:'SELECT * FROM animation where animation_id = ?',
 	editAnimation:'UPDATE animation SET ? WHERE animation_id = ?',
 	deleteAnimation:'DELETE FROM animation WHERE animation_id = ?',
-	createChart:'select DISTINCT year,(select  count(year) from animation b where a.year = b.year)  as num ' +
-				'from animation a order by year'
+	createChart:'select DISTINCT year,(select  count(year) from animation b where a.year = b.year and b.status=3)  as num1,'
+				+'(select  count(year) from animation b where a.year = b.year and b.status not in(3))  as num2 '
+				+'from animation a order by year'
 }

@@ -14,10 +14,12 @@
     function createChart() {
         <%
             var year=new Array();
-            var num=new Array();
+            var num1=new Array();
+            var num2=new Array();
             for ( var i = 0 ; i < data.length ; i++){
                     year[i] = data[i].year;
-                    num[i] = data[i].num;
+                    num1[i] = data[i].num1;
+                    num2[i] = data[i].num2;
             } %>
         var ctx = document.getElementById("animationChart").getContext("2d");
         var animationChart = new Chart(ctx, {
@@ -25,21 +27,26 @@
             data: {
                 labels: [<%=year%>],
                 datasets: [{
-                    label: '看番数',
-                    data: [<%=num%>]
+                    label: '已看',
+                    data: [<%=num1%>]
+                },{
+                    label: '未看',
+                    data: [<%=num2%>],
+                    backgroundColor: '#ff6384'
                 }]
             },
             options: {
                 scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+                    xAxes: [{
+                            stacked: true,
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
                 }
             }
         });
-    }    
+    }
 </script>
 </body>
 <% include footer %>
