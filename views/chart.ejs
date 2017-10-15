@@ -1,0 +1,45 @@
+<% include header %>
+<body onload="createChart()">
+    <div class="container">
+        <h1 class="page-header">Chart.js</h1>
+        <div class="row">
+            <% include nav %>
+            <!-- chart -->
+            <div class="col-md-10">
+			<canvas id="animationChart" width="700" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    function createChart() {
+        <%
+            var year=new Array();
+            var num=new Array();
+            for ( var i = 0 ; i < data.length ; i++){
+                    year[i] = data[i].year;
+                    num[i] = data[i].num;
+            } %>
+        var ctx = document.getElementById("animationChart").getContext("2d");
+        var animationChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [<%=year%>],
+                datasets: [{
+                    label: '看番数',
+                    data: [<%=num%>]
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }    
+</script>
+</body>
+<% include footer %>

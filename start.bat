@@ -1,0 +1,1 @@
+hotnode ./bin/www

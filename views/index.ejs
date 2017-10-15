@@ -1,0 +1,73 @@
+<% include header %>
+<body>
+    <div class="container">
+        <h1 class="page-header">Animation - List</h1>
+        <div class="row">
+            <% include nav %>
+            <!-- table list -->
+            <div class="col-md-10">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModel" onclick="autoDate()">Add</button>
+                <a class="btn btn-primary" download="AnimationList.xls" href="#" onclick="return ExcellentExport.excel(this, 'animation_list', 'Sheet Name Here');">Export table to Excel</a>
+                <% if (data.length !=0){ %>
+                <h3>一共 <%= data[0].all_num  %> 部</h3>
+                <% }else {%>
+                <h3>一共 0 部</h3>
+                <% }%>
+                <div class="table-responsive">
+                    <table class="table table-hover" id="animation_list">
+                        <thead>
+                            <th class='hidden'>Id</th>
+                            <th>番名</th>
+                            <th>已看</th>
+                            <th>年份</th>
+                            <th>季度</th>
+                            <th>状态</th>
+                            <th></th>
+                            <th></th>
+                        </thead>
+                        <% if (msg.length !=0){ %>
+                        <h3>一共 <%= msg %> 部</h3>
+                        <% }%>
+                        <% for ( var i = 0 ; i < data.length ; i++){ %>
+                        <tr>
+                            <td class='hidden'>
+                                <%= data[i].animation_id  %></td>
+                            <td>
+                                <%= data[i].animation_name  %></td>
+                            <td>
+                                <%= data[i].number  %></td>
+                            <td><%= data[i].year%></td>
+                            <td><%= data[i].season%></td>
+                        <!-- 判断status-->
+                        <% if (data[i].status==1) { %>
+                        <td>
+                            <%= data[i].status="追番" %></td>
+                        <% } else if(data[i].status==2) {%>
+                        <td>
+                            <%= data[i].status="补番" %></td>
+                        <% }else if(data[i].status==3) {%>
+                        <td>
+                            <%= data[i].status="完结" %></td>
+                        <% } else if(data[i].status==4){%>
+                        <td>
+                            <%= data[i].status="弃番" %></td>
+                        <% } %>
+                        <!-- 判断status-->
+                        <td>
+                            <div class="control">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModel" onclick="editAnimation(this)">Edit</button>
+                            </td>
+                            <td>
+                            <td>
+                                <div class="control">
+                                    <button class="btn btn-danger" type='submit' onclick="Delete(<%= data[i].animation_id %>)">Delete</button>
+                                </td>
+                            </tr>
+                            <% } %></table>
+                    </div>
+                    <% include animationAdd %>
+                    <% include animationEdit %></div>
+            </div>
+        </div>
+</body>
+<% include footer %>

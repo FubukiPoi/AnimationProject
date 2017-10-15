@@ -1,0 +1,68 @@
+
+<div class="modal fade" id="editModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Account - Edit</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" id="editForm" action="animationEdit" method="post" accept-charset="utf-8" onSubmit="return Check();">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Id_No：</label>
+                <div class="col-sm-10">
+                <input type="text" id ="animation_id" name="animation_id"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">番名：</label>
+                <div class="col-sm-10">
+                <input type="text"  id ="animation_name" name="animation_name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">已看：</label>
+                <div class="col-sm-10">
+                <input type="number"  id ="number" name="number" maxlength="3"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">年份：</label>
+                <div class="col-sm-10">
+                <input type="text"  id ="year" name="year" maxlength="4"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">季度：</label>
+                <div class="col-sm-10">
+                <select name="season" id="edit_season_select" class="form-control" >
+                  <option value="春">春</option>
+                  <option value="夏">夏</option>
+                  <option value="秋">秋</option>
+                  <option value="冬">冬</option>
+                </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">状态：</label>
+                <div class="col-sm-10">
+                <select name="status" id="edit_status_select" class="form-control" >
+                  <option value="1">追番</option>
+                  <option value="2">补番</option>
+                  <option value="3">完结</option>
+                  <option value="4">弃番</option>
+                </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-default" type='submit'>Submit</button>
+                <button class="btn btn-default" type='reset' >Reset</button>
+                <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
