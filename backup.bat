@@ -1,1 +1,0 @@
-mysqldump -uroot -p3894533 animation> animationBackup.sql
