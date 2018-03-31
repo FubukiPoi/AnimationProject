@@ -8,6 +8,7 @@
             <div class="col-md-10">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModel" onclick="autoDate()">Add</button>
                 <a class="btn btn-primary" download="AnimationList.xls" href="#" onclick="return ExcellentExport.excel(this, 'animation_list', 'Sheet Name Here');">Export table to Excel</a>
+                <button type="button" class="btn btn-primary" onclick="ajaxTest()">ajax</button>
                 <% if (data.length !=0){ %>
                 <h3>一共 <%= data[0].all_num  %> 部</h3>
                 <% }else {%>

@@ -4,8 +4,8 @@ var sql = require('../cfg/sql');
 module.exports = {
     findAllAnimation: function(req, res, next) {
         var status=req.query.status;
-        var orderBySeason_1 = ' order by year,field(season,"秋","夏","春","冬")';
-        var orderorderBySeason_2 = ' order by year,field(season,"冬","春","夏","秋")';
+        var orderBySeason_1 = ' order by year desc,field(season,"秋","夏","春","冬")';
+        var orderorderBySeason_2 = ' order by year desc,field(season,"冬","春","夏","秋")';
         if(status!=null ){
             var findAllAnimations=sql.findAllAnimation+' where status = '+status;
             if(status==3){
@@ -31,6 +31,7 @@ module.exports = {
                 data: data,
                 msg:''
             });
+            //res.jsonp(data);
         });
     },
     addAnimation: function(req, res, next) {

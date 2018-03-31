@@ -64,10 +64,23 @@ function autoDate() {
         nowSeson = '春';
     }else if(month>=6 && month<=8){
         nowSeson = '夏';
-    }else if(month>=9 && month<=10){
+    }else if(month>=9 && month<=12){
         nowSeson = '秋';
     }
     addForm.number.value = '0';
     addForm.year.value = year;
     addForm.season.value = nowSeson;
+}
+
+function ajaxTest(){
+    var configObj = {
+       method:'get',
+       url:'/',
+       async:true,
+       dataType:'json',
+       success:function(result){
+            alert(result.data);
+       }
+    }
+$.ajax(configObj);//通过$.ajax函数进行调用。
 }
